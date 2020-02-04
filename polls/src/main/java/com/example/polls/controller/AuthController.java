@@ -66,6 +66,12 @@ public class AuthController {
         String jwt = tokenProvider.generateToken(authentication);
         return ResponseEntity.ok(new JwtAuthenticationResponse(jwt));
     }
+    
+    @PostMapping("/testing")
+	public ResponseEntity<?> authenticateUser() {
+
+		return ResponseEntity.ok("Tested Successfulluy");
+	}
 
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
