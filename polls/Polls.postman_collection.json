@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "42278fb6-daf0-45a7-ad64-bdcd32c0ad16",
+		"name": "Polls",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"vignesh\",\n\t\"username\": \"vs40\",\n\t\"password\": \"helloworld@18\",\n\t\"email\": \"vignesh.n.s@capgemini.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8079/api/auth/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "8079",
+					"path": [
+						"api",
+						"auth",
+						"signup"
+					]
+				},
+				"description": "localhost:8080/signup"
+			},
+			"response": []
+		},
+		{
+			"name": "Check Username Availability",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8079/api/user/checkUsernameAvailability?username=vs40",
+					"host": [
+						"localhost"
+					],
+					"port": "8079",
+					"path": [
+						"api",
+						"user",
+						"checkUsernameAvailability"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "vs40"
+						}
+					]
+				},
+				"description": "localhost:8080/user/checkUsernameAvailability?username=vs40"
+			},
+			"response": []
+		},
+		{
+			"name": "signin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"usernameOrEmail\":\"vs40\",\n\t\"password\": \"helloworld@18\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8079/api/auth/signin",
+					"host": [
+						"localhost"
+					],
+					"port": "8079",
+					"path": [
+						"api",
+						"auth",
+						"signin"
+					]
+				},
+				"description": "localhost:8080/signin"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Poll",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzIiwiaWF0IjoxNTc3MTg0NzU3LCJleHAiOjE1Nzc3ODk1NTd9.buJTHCDC-1WAgQr6OX9eyChbG1QQec-F5sEawcheEC26Q-AcoEwOsu7FTVAAnqXPw3v3e8S_9V08i-r4hiMXcA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"question\": \"Who owns Google?\",\n    \"choices\": [\n        {\n            \"text\": \"Mark Zukerberg\"\n        },\n        {\n            \"text\": \"Anshul\"\n        },\n        {\n            \"text\": \"Adithya\"\n        },\n        {\n            \"text\": \"Dharani\"\n        }\n    ],\n    \"pollLength\": {\n        \"days\": 2,\n        \"hours\": 6\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8079/api/polls",
+					"host": [
+						"localhost"
+					],
+					"port": "8079",
+					"path": [
+						"api",
+						"polls"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
